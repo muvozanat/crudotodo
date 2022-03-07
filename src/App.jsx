@@ -2,14 +2,24 @@ import TodoHeader from "./components/TodoHeader";
 import TodoForm from "./components/TodoForm";
 import TodoItems from "./components/TodoItems";
 import TodoFooter from "./components/TodoFooter";
+import { initialTodos } from "./actions/todos";
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from "react-redux";
+
 
 export default function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initialTodos(JSON.parse(localStorage.getItem('todos'))))
+    console.log()
+  }, [])
+  const todoItem = useSelector(state => state.todos)
   return (
     <div className="container">
       <div className="row my-3">
         <div className="col-md-6 offset-md-3">
           <div className="card">
-            <TodoHeader />
+            <TodoHeader length={todoItem.length} />
             <TodoForm />
             <TodoItems />
             <TodoFooter />
@@ -27,3 +37,4 @@ export default function App() {
 // git remote add origin
 // git push -u origin master
 // git remote -v
+

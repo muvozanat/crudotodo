@@ -1,5 +1,6 @@
-exports.todo = {
-    title: 'Todo',
-    description: 'Todo list',
-    keywords: 'todo, list, todo list',
+export const TODO = {
+    ADD_TODO: 'ADD_TODO',
+    REMOVE_TODO: 'REMOVE_TODO',
+    MARK_TODO_DONE: 'MARK_TODO_DONE',
+    INITIAL_TODOS: 'INITIAL_TODOS'
 }
