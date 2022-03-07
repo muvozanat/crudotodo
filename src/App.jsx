@@ -10,9 +10,8 @@ import { useSelector, useDispatch } from "react-redux";
 export default function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    return () => {
       dispatch(initialTodos(JSON.parse(localStorage.getItem('todos'))))
-    };
+
   }, [dispatch])
  
   const todoItem = useSelector(state => state.todos)
