@@ -11,8 +11,7 @@ export default function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(initialTodos(JSON.parse(localStorage.getItem('todos'))))
-    console.log()
-  }, [])
+  }, [dispatch])
   const todoItem = useSelector(state => state.todos)
   return (
     <div className="container">
